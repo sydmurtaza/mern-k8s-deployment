@@ -1,4 +1,4 @@
-import React, { SelectHTMLAttributes } from 'react';
+import React, { forwardRef, SelectHTMLAttributes } from 'react';
 
 interface Option {
   value: string;
@@ -11,14 +11,14 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   error?: string;
 }
 
-const Select: React.FC<SelectProps> = ({
+const Select = forwardRef<HTMLSelectElement, SelectProps>(({
   id,
   label,
   options,
   error,
   className = '',
   ...props
-}) => {
+}, ref) => {
   return (
     <div className="w-full mb-4">
       {label && (
@@ -30,6 +30,7 @@ const Select: React.FC<SelectProps> = ({
         </label>
       )}
       <select
+        ref={ref}
         id={id}
         className={`w-full px-3 py-2 bg-white border ${
           error ? 'border-red-500' : 'border-gray-300'
@@ -45,6 +46,8 @@ const Select: React.FC<SelectProps> = ({
       {error && <p className="mt-1 text-sm text-red-500">{error}</p>}
     </div>
   );
-};
+});
+
+Select.displayName = 'Select';
 
 export default Select;
