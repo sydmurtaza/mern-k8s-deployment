@@ -21,6 +21,20 @@ jobs:
       run: |
         docker build -t syedmurtaza12/mern-k8s-app:latest .
 
+    - name: Debug Secrets
+      run: |
+        echo "Checking if secrets are available..."
+        if [ -n "${{ secrets.DOCKER_USERNAME }}" ]; then
+          echo "DOCKER_USERNAME is set"
+        else
+          echo "DOCKER_USERNAME is not set"
+        fi
+        if [ -n "${{ secrets.DOCKER_PASSWORD }}" ]; then
+          echo "DOCKER_PASSWORD is set"
+        else
+          echo "DOCKER_PASSWORD is not set"
+        fi
+
     - name: Login to Docker Hub
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
