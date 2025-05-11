@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: backend
-        image: my-node-app:latest  # Local image or your-dockerhub-username/my-node-app
+        image: syedmurtaza12/mern-k8-app:latest
         ports:
         - containerPort: 5000
         env:
-        - name: MONGO_URI
+        - name: MONGODB_URI
           value: "mongodb://mongodb-service:27017/mern-db"
         resources:
           requests:
