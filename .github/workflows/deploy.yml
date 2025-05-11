@@ -1,5 +1,5 @@
 name: Build and Deploy to Minikube
-# Trigger workflow on push to main branch
+# Trigger workflow on push to main branch with new Docker token
 on:
   push:
     branches:
