@@ -20,7 +20,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t syedmurtaza12/mern-k8s-app:latest .
+        docker build -t syedmurtaza12/mern-k8-app:latest .
 
     - name: Debug Secrets
       run: |
@@ -49,7 +49,7 @@ jobs:
         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
     - name: Push Docker image to Docker Hub
-      run: docker push syedmurtaza12/mern-k8s-app:latest
+      run: docker push syedmurtaza12/mern-k8-app:latest
 
     - name: Deploy to Minikube
       run: |
