@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: syedmurtaza12/mern-k8-app-frontend:latest
+        image: syedmurtaza12/mern-k8-app:latest
         ports:
         - containerPort: 80
         livenessProbe:
