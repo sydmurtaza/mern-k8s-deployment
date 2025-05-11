@@ -17,6 +17,9 @@ spec:
         image: syedmurtaza12/mern-k8-app:latest
         ports:
         - containerPort: 80
+        env:
+        - name: MONGODB_URI
+          value: "mongodb://mongodb-service:27017/mern-db"
         livenessProbe:
           httpGet:
             path: /
